@@ -87,4 +87,9 @@ ld b, 2500
 mul
 str a, [4096/16]
 `);
-console.debug(machineCode);
+
+const fs = require('fs');
+
+const filePath = process.argv[2];
+
+fs.writeFileSync(filePath, new Uint8Array(machineCode));
