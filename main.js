@@ -78,18 +78,33 @@ class Assembler {
     }
 }
 
-const assembler = new Assembler();
-const machineCode = assembler.assemble(
-`ld a, 2500
-nop
-nop
-ld b, 2500
-mul
-str a, [4096/16]
-`);
-
 const fs = require('fs');
 
-const filePath = process.argv[2];
+const assembler = new Assembler();
 
-fs.writeFileSync(filePath, new Uint8Array(machineCode));
+var iFile;
+try {
+    iFile = fs.readFileSync(process.argv[2], 'utf8');
+}
+catch (e) {
+    console.error(`file read error: path=>"${process.argv[2]}"`)
+    console.debug(e);
+}
+
+var machineCode
+try {
+    machineCode = assembler.assemble(iFile);
+} 
+catch (e) {
+    console.error("assembler error: ")
+    console.debug(e);
+}
+
+try {
+    const oFile = process.argv[3];
+    fs.writeFileSync(oFile, new Uint8Array(machineCode));
+}
+catch (e) {
+    console.error(`file write error: path=>"${process.argv[3]}"`)
+    console.debug(e);
+}
