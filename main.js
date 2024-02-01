@@ -1,8 +1,8 @@
 const Opcode = {
     halt: 0,
     jmp: 1,
-    str: 2,
-    ld: 3,
+    mov: 2,
+    lod: 3,
     add: 4,
     sub: 5,
     mul: 6,

@@ -1,8 +1,8 @@
 const Opcode = {
     halt: 0,
     jmp: 1,
-    str: 2,
-    ld: 3,
+    mov: 2,
+    lod: 3,
     add: 4,
     sub: 5,
     mul: 6,
@@ -82,10 +82,10 @@ class Assembler {
     }
 }
 
-let input = `ld a, 100
-ld b, 100
+let input = `lod a, 100
+lod b, 100
 mul
-str a, 600
+mov a, 600
 halt`
 
 const assembler = new Assembler();
