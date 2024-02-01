@@ -82,8 +82,8 @@ class Assembler {
     }
 }
 
-let input = `lod a, 100
-lod b, 100
+let input = `
+lod a, 100
 mul
 mov a, 600
 halt`

@@ -1,7 +1,7 @@
 const Opcode = {
     halt: 0,
     jmp: 1,
-    mov: 2,
+    str: 2,
     lod: 3,
     add: 4,
     sub: 5,
